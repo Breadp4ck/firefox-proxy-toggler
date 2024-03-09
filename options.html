@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Proxy Configuration</title>
+  <script src="./options.js"></script>
+  <script src="./proxySettings.js"></script>
+  <link rel="stylesheet" href="options.css"> 
+</head>
+<body>
+  <main class="form-container">
+    <div class="form-group">
+      <h1>Proxy Configuration</h1>
+    </div>
+    <div class="form-group"><hr/></div>
+    <div class="form-group">
+      <label for="httpAddress">HTTP Proxy</label>
+      <input type="text" id="httpAddress" name="httpAddress">
+      <label for="httpPort">Port</label>
+      <input type="text" id="httpPort" name="httpPort" placeholder="0">
+    </div>
+    <div class="form-group">
+      <label for="httpForHttps">
+        <input type="checkbox" id="httpForHttps" name="httpForHttps">
+        Also use this proxy for HTTPS
+      </label>
+    </div>
+    <div class="form-group"><hr/></div>
+    <div class="form-group">
+      <label for="httpsAddress">HTTPS Proxy</label>
+      <input type="text" id="httpsAddress" name="httpsAddress">
+      <label for="httpsPort">Port</label>
+      <input type="text" id="httpsPort" name="httpsPort" placeholder="0">
+    </div>
+    <div class="form-group"><hr/></div>
+    <div class="form-group">
+      <label for="socksAddress">SOCKS Host</label>
+      <input type="text" id="socksAddress" name="socksAddress">
+      <label for="socksPort">Port</label>
+      <input type="text" id="socksPort" name="socksPort" placeholder="0">
+    </div>
+    <div class="form-group">
+      <label for="socksVersion4">
+        <input type="radio" id="socksVersion4" name="socksVersion" value=4>
+        SOCKS v4
+      </label>
+      <span class="space"></span>
+      <label for="socksVersion5">
+        <input type="radio" id="socksVersion5" name="socksVersion" value=5 checked>
+        SOCKS v5
+      </label>
+    </div>
+    <div class="form-group"><hr/></div>
+    <div class="form-group">
+      <button id="saveButton">Save</button>
+    </div>
+  </main>
+</body>
+</html>
+

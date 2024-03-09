@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Proxy Toggler",
+  "version": "1.0",
+  "description": "Toggle proxy settings from system to manual.",
+  "permissions": ["proxy", "tabs", "storage"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_icon": "icons/icon.svg",
+    "default_title": "Proxy Trigger",
+    "theme_icons": [{
+        "light": "icons/icon.svg",
+        "dark": "icons/icon_dark.svg",
+        "size": 32
+    }]
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg",
+    "128": "icons/icon.svg"
+  }
+}
