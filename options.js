@@ -72,23 +72,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Adapt colors to browser theme, somehow
 browser.theme.onUpdated.addListener(async ({ theme, windowId }) => {
-  // TODO: I tired to write the extension, so this is it.
-  if (!(theme && theme.colors)) {
-    return;
-  }
-
-  const root = document.documentElement;
-  root.style.setProperty('--primary-color', theme.colors.tab_background_text);
-  root.style.setProperty('--solid-color', theme.colors.toolbar);
-  root.style.setProperty('--fg-main-color', theme.colors.popup_text);
-  root.style.setProperty('--fg-secondary-color', theme.colors.toolbar_field_text);
-  root.style.setProperty('--fg-input-color', theme.colors.toolbar_field_text_highlight);
-  root.style.setProperty('--bg-main-color', theme.colors.frame);
-  root.style.setProperty('--bg-panel-color', theme.colors.popup);
-  root.style.setProperty('--bg-input-color', theme.colors.toolbar_field);
-  if (theme.colors.button) { root.style.setProperty('--bg-button-color', theme.colors.button); }
-  if (theme.colors.button_hover) { root.style.setProperty('--bg-button-color_hover', theme.colors.button_active); }
-  if (theme.colors.button_active) { root.style.setProperty('--bg-button-color_active', theme.colors.button_hover); }
-  root.style.setProperty('--border-color', theme.colors.toolbar_top_separator);
+  updateTheme();
 });
 
+function updateTheme() {
+  browser.theme.getCurrent().then(theme => {
+    if (!(theme && theme.colors)) {
+      return;
+    }
+
+    const root = document.documentElement;
+    root.style.setProperty('--primary-color', theme.colors.tab_background_text);
+    root.style.setProperty('--solid-color', theme.colors.toolbar);
+    root.style.setProperty('--fg-main-color', theme.colors.popup_text);
+    root.style.setProperty('--fg-secondary-color', theme.colors.toolbar_field_text);
+    root.style.setProperty('--fg-input-color', theme.colors.toolbar_field_text_highlight);
+    root.style.setProperty('--bg-main-color', theme.colors.frame);
+    root.style.setProperty('--bg-panel-color', theme.colors.popup);
+    root.style.setProperty('--bg-input-color', theme.colors.toolbar_field);
+    if (theme.colors.button) { root.style.setProperty('--bg-button-color', theme.colors.button); }
+    if (theme.colors.button_hover) { root.style.setProperty('--bg-button-color_hover', theme.colors.button_active); }
+    if (theme.colors.button_active) { root.style.setProperty('--bg-button-color_active', theme.colors.button_hover); }
+    root.style.setProperty('--border-color', theme.colors.toolbar_top_separator);
+    
+  });
+}
